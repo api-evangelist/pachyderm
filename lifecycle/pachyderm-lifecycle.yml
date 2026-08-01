@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pachyderm/pachyderm/releases
+description: >-
+  Pachyderm version and release lifecycle. The project is open source
+  (Apache-2.0) and was acquired by Hewlett Packard Enterprise in January 2023;
+  the standalone pachyderm.com / docs.pachyderm.com marketing and hosted
+  (Pachyderm Hub) surfaces have since been retired, but the source, releases
+  and packages remain published on GitHub and the language registries.
+versioning:
+  scheme: semver
+  current: v2.12.2
+  docs: https://github.com/pachyderm/pachyderm/releases
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No formal published deprecation-header policy. python-pachyderm (legacy
+    Python client) is deprecated in favor of pachyderm-sdk; its repository is
+    archived.
+sla:
+  url: null
+status_page: null
+release_channel: https://github.com/pachyderm/pachyderm/releases
+ownership:
+  acquired_by: Hewlett Packard Enterprise (HPE)
+  acquired: '2023-01'
+deprecated_repos:
+  - https://github.com/pachyderm/python-pachyderm

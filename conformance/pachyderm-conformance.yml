@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: derived
+source: grpc/pachyderm-auth.proto, grpc/pachyderm-pfs.proto, grpc/pachyderm-pps.proto
+description: >-
+  Cross-cutting standards Pachyderm's API conforms to, derived from the
+  protobuf service definitions and documented auth model. Pachyderm is a
+  gRPC-first platform, not a REST/OpenAPI provider, so REST-oriented standards
+  (RFC 9457, JSON:API, OData) do not apply.
+standards:
+  - id: grpc
+    conforms: true
+    evidence: services defined in proto3, served over gRPC (pfs_v2, pps_v2, auth_v2)
+  - id: protobuf3
+    conforms: true
+    evidence: all API messages use proto3 syntax
+  - id: oidc
+    conforms: true
+    evidence: Auth service GetOIDCLogin + embedded Dex OIDC provider
+  - id: oauth2
+    conforms: true
+    evidence: OIDC authorizationCode flow underlies user authentication
+  - id: rbac
+    conforms: true
+    evidence: role bindings and permission checks in auth.proto (Authorize, ModifyRoleBinding)
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: gRPC status codes used, not HTTP problem+json
+  - id: fhir-r4
+    conforms: false
+  - id: scim
+    conforms: false

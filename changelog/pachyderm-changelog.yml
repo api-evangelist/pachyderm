@@ -1,0 +1,27 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pachyderm/pachyderm/releases
+description: >-
+  Pachyderm ships versioned releases on GitHub with SemVer tags on the 2.x
+  line. Recent window captured from the GitHub Releases feed.
+versioning:
+  scheme: semver
+  current: v2.12.2
+  line: '2.x'
+  releases_url: https://github.com/pachyderm/pachyderm/releases
+entries:
+  - version: v2.12.2
+    date: '2025-01-15'
+    highlights: latest stable patch on the 2.12 line
+  - version: v2.11.6
+    date: '2024-12-13'
+    highlights: 2.11 maintenance release
+  - version: v2.11.5
+    date: '2024-10-16'
+    highlights: 2.11 maintenance release
+  - version: v2.11.4
+    date: '2024-10-07'
+    highlights: 2.11 maintenance release
+  - version: v2.11.3
+    date: '2024-09-18'
+    highlights: 2.11 maintenance release

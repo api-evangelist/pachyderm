@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: derived
+source: grpc/pachyderm-pfs.proto, grpc/pachyderm-pps.proto, grpc/pachyderm-auth.proto
+description: >-
+  Cross-cutting request/response semantics for the Pachyderm gRPC API,
+  derived from the protobuf service definitions.
+transport:
+  protocol: grpc
+  encoding: protobuf3
+authentication:
+  style: session token in gRPC metadata (authn-token); OIDC for users, robot tokens for automation
+  ref: authentication/pachyderm-authentication.yml
+streaming:
+  style: server-streaming and bidirectional-streaming RPCs
+  examples:
+    - ListCommit / ListFile / ListJob / ListPipeline return server streams
+    - ModifyFile / CreateFileSet accept client streams
+    - SubscribeCommit / SubscribeJob provide change subscriptions (event-like)
+pagination:
+  style: streaming (results delivered as a stream rather than paged pages)
+  note: list RPCs stream results; filtering via request fields (e.g. number/reverse)
+versioning:
+  style: package-versioned proto (pfs_v2, pps_v2, auth_v2) + SemVer platform releases
+error_model:
+  style: grpc-status-codes
+  note: errors surfaced as gRPC status codes/messages, not an HTTP problem envelope
+idempotency:
+  supported: false
+  note: >-
+    No documented idempotency-key mechanism. Write safety comes from the
+    content-addressed, immutable commit model (StartCommit/FinishCommit) rather
+    than request idempotency keys.
+transactions:
+  supported: true
+  note: transaction.proto batches multiple operations into an atomic transaction

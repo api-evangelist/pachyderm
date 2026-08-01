@@ -1,0 +1,52 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pachyderm/pachyderm
+description: >-
+  First-party Pachyderm client libraries across languages. The gRPC/protobuf
+  API is the source of truth; SDKs are generated/hand-maintained clients.
+  pachyderm-sdk is the current official Python client; python-pachyderm is the
+  legacy Python client (repo archived). Go client ships in the main module.
+packages:
+  - language: python
+    registry: pypi
+    name: pachyderm-sdk
+    version: 2.12.2
+    url: https://pypi.org/project/pachyderm-sdk/
+    install: pip install pachyderm-sdk
+    source: https://github.com/pachyderm/pachyderm/tree/master/python-sdk
+    official: true
+    note: current official Python SDK (tracks the 2.x platform version)
+  - language: python
+    registry: pypi
+    name: python-pachyderm
+    version: 7.6.0
+    url: https://pypi.org/project/python-pachyderm/
+    install: pip install python-pachyderm
+    source: https://github.com/pachyderm/python-pachyderm
+    official: true
+    deprecated: true
+    note: legacy Python client; repo archived, superseded by pachyderm-sdk
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/pachyderm/pachyderm/v2/src/client
+    version: v2.12.2
+    url: https://pkg.go.dev/github.com/pachyderm/pachyderm/v2/src/client
+    install: go get github.com/pachyderm/pachyderm/v2@v2.12.2
+    official: true
+    note: Go gRPC client, ships inside the main module
+  - language: ruby
+    registry: rubygems
+    name: pachyderm
+    version: 1.7.3.14
+    url: https://rubygems.org/gems/pachyderm
+    install: gem install pachyderm
+    source: https://github.com/pachyderm/ruby-pachyderm
+    official: true
+  - language: rust
+    registry: crates.io
+    name: pachyderm
+    version: 0.4.1
+    url: https://crates.io/crates/pachyderm
+    install: cargo add pachyderm
+    source: https://github.com/pachyderm/rust-pachyderm
+    official: true

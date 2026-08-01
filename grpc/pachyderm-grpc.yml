@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pachyderm/pachyderm/tree/master/src
+description: >-
+  Pachyderm exposes its platform as a gRPC/protobuf API. The core public
+  services are PFS (Pachyderm File System — data versioning) and PPS
+  (Pachyderm Pipeline System — data-driven pipelines), plus an Auth service
+  (OIDC login, robot tokens, RBAC). Proto definitions saved verbatim from the
+  Apache-2.0 pachyderm/pachyderm repository (v2.12.2).
+protos:
+  - service: PFS
+    package: pfs_v2
+    file: pachyderm-pfs.proto
+    source: https://github.com/pachyderm/pachyderm/blob/master/src/pfs/pfs.proto
+    summary: >-
+      Data versioning file system — repos, commits, branches, files and
+      filesets with immutable lineage. RPCs include CreateRepo, StartCommit,
+      FinishCommit, ModifyFile, GetFile, ListCommit, CreateBranch, DiffFile.
+  - service: PPS
+    package: pps_v2
+    file: pachyderm-pps.proto
+    source: https://github.com/pachyderm/pachyderm/blob/master/src/pps/pps.proto
+    summary: >-
+      Pipeline system — pipelines, jobs, datums, secrets and logs. RPCs include
+      CreatePipeline, CreatePipelineV2, InspectJob, ListJob, RunCron, GetLogs,
+      StartPipeline, StopPipeline, ListDatum.
+  - service: Auth
+    package: auth_v2
+    file: pachyderm-auth.proto
+    source: https://github.com/pachyderm/pachyderm/blob/master/src/auth/auth.proto
+    summary: >-
+      Authentication and authorization — OIDC login, robot tokens, RBAC role
+      bindings and permission checks. RPCs include Authenticate, Authorize,
+      GetOIDCLogin, GetRobotToken, ModifyRoleBinding, WhoAmI.
+other_services:
+  - admin, enterprise, license, identity, transaction, debug, logs, metadata,
+    proxy, snapshot, pjs (see src/*/*.proto in the repository)

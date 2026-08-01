@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pachyderm/pachyderm
+description: >-
+  pachctl is Pachyderm's first-party command-line client. It talks to a
+  Pachyderm cluster over the same gRPC API as the SDKs and drives both data
+  versioning (PFS) and pipelines (PPS).
+cli:
+  name: pachctl
+  official: true
+  source: https://github.com/pachyderm/pachyderm
+  homebrew_tap: https://github.com/pachyderm/homebrew-tap
+install:
+  - method: homebrew
+    command: brew install pachyderm/tap/pachctl@2.12
+  - method: binary
+    command: >-
+      curl -Lo /tmp/pachctl.tar.gz
+      https://github.com/pachyderm/pachyderm/releases/download/v2.12.2/pachctl_2.12.2_linux_amd64.tar.gz
+      && tar -xf /tmp/pachctl.tar.gz && sudo cp pachctl_2.12.2_linux_amd64/pachctl /usr/local/bin
+command_groups:
+  - group: repo
+    summary: create/inspect/list/delete data repositories (PFS)
+  - group: commit
+    summary: start/finish/inspect/list commits and manage lineage
+  - group: branch
+    summary: manage branches and provenance
+  - group: file
+    summary: put/get/list/inspect/glob files and filesets
+  - group: pipeline
+    summary: create/update/inspect/list/start/stop/delete pipelines (PPS)
+  - group: job
+    summary: inspect/list/stop jobs and datums
+  - group: auth
+    summary: activate auth, login (OIDC), manage roles/robot tokens
+  - group: enterprise
+    summary: register/inspect enterprise license
+  - group: config
+    summary: manage pachctl contexts and cluster connection
+key_flows:
+  - "pachctl connect / pachctl config set active-context"
+  - "pachctl create repo <name> && pachctl put file <repo>@<branch>:/path -f data"
+  - "pachctl create pipeline -f pipeline.json"
+  - "pachctl auth login (browser-based OIDC)"

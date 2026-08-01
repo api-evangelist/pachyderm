@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/pachyderm/pachyderm/blob/master/src/auth/auth.proto
+description: >-
+  Pachyderm authenticates API/gRPC and pachctl clients with session tokens
+  carried in gRPC metadata. Human users log in via OIDC (Pachyderm bundles a
+  Dex identity provider); automation uses robot tokens. Authorization is
+  RBAC — role bindings evaluated by the Auth service. Auth is activated per
+  cluster (Enterprise feature) and rooted by a rotatable root token.
+summary:
+  types: [oidc, bearer-token]
+  token_transport: grpc-metadata (authn-token)
+  authz: rbac
+schemes:
+  - name: OIDC
+    type: openIdConnect
+    provider: Dex (embedded)
+    flow: authorizationCode
+    detail: >-
+      GetOIDCLogin returns a browser login URL; pachctl auth login completes
+      the OIDC flow and stores the resulting Pachyderm session token.
+    source: https://github.com/pachyderm/dex
+  - name: RobotToken
+    type: http
+    scheme: bearer
+    detail: >-
+      GetRobotToken mints a long-lived non-human token for CI/automation,
+      scoped by the RBAC role bindings assigned to the robot principal.
+  - name: RootToken
+    type: http
+    scheme: bearer
+    detail: >-
+      Cluster root credential established at auth Activate; rotatable via
+      RotateRootToken.
+rbac:
+  role_binding_rpcs: [ModifyRoleBinding, GetRoleBinding, GetRolesForPermission]
+  permission_rpcs: [Authorize, GetPermissions, GetPermissionsForPrincipal, WhoAmI]
+  resources: [cluster, project, repo, pipeline]

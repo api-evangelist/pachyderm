@@ -1,7 +1,30 @@
 aid: pachyderm
 name: Pachyderm
-description: Pachyderm is a company surfaced as a portfolio company of dcvc and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Pachyderm is an open-source (Apache-2.0) platform for data-centric pipelines
+  and data versioning, widely used for MLOps. It provides immutable, git-like
+  data lineage through the Pachyderm File System (PFS) and data-driven,
+  containerized pipelines that reprocess only changed data through the
+  Pachyderm Pipeline System (PPS), all running on Kubernetes. The platform is
+  driven by a gRPC/protobuf API with first-party Python, Go, Ruby and Rust
+  clients and the pachctl command-line tool. Pachyderm was acquired by Hewlett
+  Packard Enterprise in January 2023; the standalone marketing, documentation
+  and hosted (Pachyderm Hub) sites have since been retired, but the source,
+  releases, SDKs and CLI remain actively published on GitHub and the language
+  package registries (latest release v2.12.2, January 2025).
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/10432478?v=4
 url: https://raw.githubusercontent.com/api-evangelist/pachyderm/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,12 +34,72 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- MLOps
+- Data Versioning
+- Data Pipelines
+- Data Lineage
+- Machine Learning
+- Kubernetes
+- gRPC
+- Open Source
+apis:
+- name: Pachyderm gRPC API
+  description: >-
+    Pachyderm's platform API, exposed over gRPC/protobuf. Core services are PFS
+    (data versioning — repos, commits, branches, files) and PPS (pipelines —
+    jobs, datums, pipelines, logs), plus an Auth service (OIDC login, robot
+    tokens, RBAC). Self-hosted on a Kubernetes cluster; there is no vendor-hosted
+    public endpoint.
+  humanURL: https://github.com/pachyderm/pachyderm/tree/master/src
+  baseURL: https://github.com/pachyderm/pachyderm/tree/master/src
+  tags:
+  - gRPC
+  - Data Versioning
+  - Data Pipelines
+  properties:
+  - type: Protobuf
+    url: grpc/pachyderm-grpc.yml
+  - type: Authentication
+    url: authentication/pachyderm-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: GitHubOrganization
+  url: https://github.com/pachyderm
+- type: Documentation
+  url: https://github.com/pachyderm/pachyderm/blob/master/README.md
+- type: APIReference
+  url: https://github.com/pachyderm/pachyderm/tree/master/src
+- type: SourceCode
+  url: https://github.com/pachyderm/pachyderm
+- type: Packages
+  url: packages/pachyderm-packages.yml
+- type: SDKs
+  url: packages/pachyderm-packages.yml
+- type: CLI
+  url: cli/pachyderm-cli.yml
+- type: Protobuf
+  url: grpc/pachyderm-grpc.yml
+- type: Authentication
+  url: authentication/pachyderm-authentication.yml
+- type: Conformance
+  url: conformance/pachyderm-conformance.yml
+- type: Conventions
+  url: conventions/pachyderm-conventions.yml
+- type: Lifecycle
+  url: lifecycle/pachyderm-lifecycle.yml
+- type: ChangeLog
+  url: changelog/pachyderm-changelog.yml
+- type: LLMsTxt
+  url: llms/pachyderm-llms.txt
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1

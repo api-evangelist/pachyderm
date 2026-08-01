@@ -1,0 +1,28 @@
+# Pachyderm
+
+> Pachyderm is an open-source (Apache-2.0) platform for data-centric pipelines and data versioning. It provides immutable, git-like data lineage (the Pachyderm File System, PFS) and data-driven, containerized pipelines that reprocess only changed data (the Pachyderm Pipeline System, PPS), running on Kubernetes. Pachyderm was acquired by Hewlett Packard Enterprise in January 2023; the standalone marketing/docs/hosted sites have been retired, but the source, releases, SDKs and CLI remain published on GitHub and the language registries.
+
+## API
+
+- [Pachyderm gRPC/protobuf API](https://github.com/pachyderm/pachyderm/tree/master/src): PFS (data versioning), PPS (pipelines) and Auth (OIDC/RBAC) services over gRPC.
+
+## Specs
+
+- [PFS proto (pfs_v2)](https://github.com/pachyderm/pachyderm/blob/master/src/pfs/pfs.proto): repos, commits, branches, files, filesets.
+- [PPS proto (pps_v2)](https://github.com/pachyderm/pachyderm/blob/master/src/pps/pps.proto): pipelines, jobs, datums, secrets, logs.
+- [Auth proto (auth_v2)](https://github.com/pachyderm/pachyderm/blob/master/src/auth/auth.proto): OIDC login, robot tokens, RBAC.
+
+## SDKs and CLI
+
+- [pachyderm-sdk (Python, current)](https://pypi.org/project/pachyderm-sdk/): pip install pachyderm-sdk
+- [python-pachyderm (Python, legacy)](https://pypi.org/project/python-pachyderm/): pip install python-pachyderm
+- [Go client](https://pkg.go.dev/github.com/pachyderm/pachyderm/v2/src/client): go get github.com/pachyderm/pachyderm/v2
+- [Ruby client](https://rubygems.org/gems/pachyderm): gem install pachyderm
+- [Rust client](https://crates.io/crates/pachyderm): cargo add pachyderm
+- [pachctl CLI](https://github.com/pachyderm/homebrew-tap): brew install pachyderm/tap/pachctl
+
+## Source
+
+- [pachyderm/pachyderm on GitHub](https://github.com/pachyderm/pachyderm): main platform repository (Go), v2.12.2.
+- [Releases](https://github.com/pachyderm/pachyderm/releases): SemVer release feed.
+- [Examples](https://github.com/pachyderm/examples): curated Pachyderm usage examples.
