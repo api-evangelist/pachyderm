@@ -70,6 +70,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: License
+  name: Apache-2.0
+  url: https://github.com/pachyderm/pachyderm/blob/master/LICENSE
 - type: GitHubOrganization
   url: https://github.com/pachyderm
 - type: Documentation
