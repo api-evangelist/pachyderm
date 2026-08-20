@@ -39,6 +39,16 @@ tags:
 - Company
 - MLOps
 - Data Versioning
+- Data Pipeline
+- Data Lineage
+- Machine-Learning
+- Kubernetes
+- gRPC
+- Open-Source
+tags_raw:
+- Company
+- MLOps
+- Data Versioning
 - Data Pipelines
 - Data Lineage
 - Machine Learning
@@ -56,6 +66,10 @@ apis:
   humanURL: https://github.com/pachyderm/pachyderm/tree/master/src
   baseURL: https://github.com/pachyderm/pachyderm/tree/master/src
   tags:
+  - gRPC
+  - Data Versioning
+  - Data Pipeline
+  tags_raw:
   - gRPC
   - Data Versioning
   - Data Pipelines
