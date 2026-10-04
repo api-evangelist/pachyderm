@@ -53,10 +53,10 @@ tags:
 - Data Versioning
 - Data Pipeline
 - Data Lineage
-- Machine-Learning
+- Machine Learning
 - Kubernetes
 - gRPC
-- Open-Source
+- Open Source
 tags_raw:
 - Company
 - MLOps
@@ -67,6 +67,8 @@ tags_raw:
 - Kubernetes
 - gRPC
 - Open Source
+- Machine-Learning
+- Open-Source
 apis:
 - name: Pachyderm gRPC API
   description: >-
